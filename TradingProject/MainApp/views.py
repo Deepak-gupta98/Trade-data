@@ -28,10 +28,11 @@ def convert_into_timeframe(request, csv_file, data_stored, timeframe=10):
 def get_csv_file(request):
     file = open(r'NIFTY_F1_Xm8mAtb.csv')
     csv_file = csv.reader(file)
+    timeframe = int(request.POST.get('timeframe'))
+    print("timeframe is: ", timeframe, type(timeframe))
     rows = []
     data_stored = []
     count =0
-    timeframe = 10
 
     for row in csv_file:
         count=count+1
